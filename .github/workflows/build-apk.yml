@@ -44,6 +44,11 @@ jobs:
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug --info
+      
+      - name: Add and Sync Capacitor Android
+        run: |
+          ./node_modules/.bin/cap add android || true
+          ./node_modules/.bin/cap sync android
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
